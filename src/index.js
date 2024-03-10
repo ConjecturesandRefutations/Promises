@@ -27,3 +27,31 @@ const directions = [
     .then(() => obtainDirections(3) )
     .then(() => console.log("You arrived at your destination!") )
     .catch((err) => console.log(err));
+
+    const myPromise = new Promise( (resolve, reject) => {
+        if (/* condition */) {
+           resolve(/* value */);  // fulfilled successfully
+        }
+        else {
+           reject(/* reason */);  // error, rejected
+        }
+     });
+
+     //Promise all
+
+     const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("foo"), 1000);
+      });
+       
+      const p2 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve(1337), 2000);
+      });
+       
+      const p3 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve( { name: "Bob" } ), 4000);
+      });
+       
+       
+      Promise.all( [p1, p2, p3] )
+        .then((values) => console.log("values", values));
+      
