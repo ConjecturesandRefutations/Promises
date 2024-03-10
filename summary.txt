@@ -1,0 +1,11 @@
+Summary
+
+Promises allow us to write asynchronous code in a synchronous, linear way. As many modern Web APIs use promises it is essential knowing how to work with them.
+
+To create a Promise we use the new Promise constructor, which takes a function with two callbacks - resolve and reject. A Promise can be in one of three states: pending, fulfilled or rejected.
+
+We specify how the Promise should be handled by using the methods then() and catch().
+
+The then() method runs when a Promise fulfills successfully (is resolved). The catch() method will run when the Promise gets rejected, due to the rejection or an Error. To handle consecutive Promises we can chain multiple then() and catch() blocks.
+
+At last, we can use the method finally() to do the final clean-up once the Promise is settled. To aggregate the results and to await for many promises to fulfill, we use the Promise.all() method.
