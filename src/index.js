@@ -20,6 +20,8 @@ const directions = [
     })
   };
    
+
+  
    
   obtainDirections(0)
     .then(() => obtainDirections(1) )
@@ -29,7 +31,7 @@ const directions = [
     .catch((err) => console.log(err));
 
     const myPromise = new Promise( (resolve, reject) => {
-        if (/* condition */) {
+        if (meow) {
            resolve(/* value */);  // fulfilled successfully
         }
         else {
@@ -55,3 +57,20 @@ const directions = [
       Promise.all( [p1, p2, p3] )
         .then((values) => console.log("values", values));
       
+
+        const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("foo"), 1000);
+          });
+          
+          const p2 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(1337), 2000);
+          });
+          
+          const p3 = new Promise((resolve, reject) => {
+            setTimeout(() => reject("Something went wrong"), 4000); // <= Reject the promise
+          });
+          
+          Promise.all([p1, p2, p3])
+            .then((values) => console.log("values", values))
+            .catch((err)=> console.log("catch()", err));
+          
